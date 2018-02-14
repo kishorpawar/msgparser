@@ -350,7 +350,11 @@ class Message(OleFileIO):
             attachment.save()
 
 
+### Code above this line is copied from the internet.
 
+
+### here I wanted to write a custom parser using above classes 
+### as specified in django rest framework
 
 class MailParser(BaseParser):
     """

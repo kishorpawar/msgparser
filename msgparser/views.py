@@ -5,23 +5,28 @@ from django.views.generic.base import TemplateView
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 
-from parsers.parsers import MailParser
+from parsers.parsers import MailParser, Message
 
 class FileUploadView(APIView):
-	parser_classes = (MailParser,)
+	# parser_classes = (MailParser,)
 
-	def put(self, request, format=None):
-		# file_ob = request.FILES['file']
+	def post(self, request, format=None):
+		file_ob = request.FILES['file'].read()
 
-		# print type(file_ob)
-		# print file_ob
-		print request.data.dump
-		print dir(request.data)
-		return Response(status=204)
-
-	@method_decorator(csrf_exempt)
-	def dispatch(self, request, *args, **kwargs):
-		return super(FileUploadView, self).dispatch(request, *args, **kwargs)
+		m = Message(file_ob)
+		# print dir(m)
+		resp = {
+			'subject' : m.subject,
+			'header' : m.header,
+			'date' : m.date,
+			'to' : m.to,
+			'sender' : m.sender, 
+			'cc' : m.cc, 
+			'body' : m.body,
+			# 'attachements' : m.attachments
+		}
+		print resp
+		return Response(resp)
 
 class Home(TemplateView):
 	"""Home page"""

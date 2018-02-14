@@ -20,6 +20,6 @@ from views import FileUploadView, Home
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-	url(r'', Home.as_view(), name='home'),
-    url(r'email/parse/', FileUploadView.as_view()),
+    url(r'^$', Home.as_view(), name='home'),
+    url(r'email/parse/$', FileUploadView.as_view(), name="email-parse"),
 ]

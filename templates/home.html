@@ -4,7 +4,8 @@
     <head>
       	<!--Import materialize.css-->
       	<link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}"  media="screen,projection"/>
-
+      	<link rel="stylesheet" type="text/css" href="{% static 'css/sweetalert.css' %}">
+      	<link rel="stylesheet" type="text/css" href="{% static 'css/icon.css' %}">
       	<!--Let browser know website is optimized for mobile-->
       	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     
@@ -27,7 +28,7 @@
 
 		{% block content %}
 				<div ui-view="">
-				Hello
+					<h4>Hello NII</h4>
 				</div>	
 			</div>
 		{% endblock content %}
@@ -36,5 +37,12 @@
 	{% block js %}
     	<script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
 	    <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+	    <script type="text/javascript" src="{% static 'js/angular.js' %}"></script>
+	    <script type="text/javascript" src="{% static 'js/angular-ui-router.js' %}"></script>
+	    <script type="text/javascript" src="{% static 'js/angular-route.js' %}"></script>
+	    <script type="text/javascript" src="{% static 'js/sweetalert.js' %}"></script>
+
+	    <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+	    <script type="text/javascript" src="{% static 'js/controllers.js' %}"></script>
 	{% endblock js %}
 </html>

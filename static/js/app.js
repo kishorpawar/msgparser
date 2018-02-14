@@ -1,6 +1,7 @@
 var app = angular.module('nii', [
     'ui.router',
-    'ui.materialize',
+    // 'ui.materialize',
+    'ngRoute',
 ]);
 
 app.run(function($rootScope) {
@@ -8,18 +9,18 @@ app.run(function($rootScope) {
 });
 
 
-app.config(['$stateProvider', '$urlRouterProvider', 'RestangularProvider',
-    function($stateProvider, $urlRouterProvider, RestangularProvider) {
+app.config(['$stateProvider', '$urlRouterProvider',
+    function($stateProvider, $urlRouterProvider,) {
 
-        RestangularProvider.setDefaultHeaders({
-            "X-CSRFToken": csrftoken
-        });
+        // RestangularProvider.setDefaultHeaders({
+        //     "X-CSRFToken": csrftoken
+        // });
         $urlRouterProvider.otherwise("/");
 
         $stateProvider
         	.state("/", {
                 url: "/",
-                templateUrl: "/static/ng_templates/textbox.html",
+                templateUrl: "/static/ng_templates/file_upload.html",
                 controller: 'EmailUpload'
             })
   	}]);
