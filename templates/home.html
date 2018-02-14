@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+      	<!--Import materialize.css-->
+      	<link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}"  media="screen,projection"/>
+
+      	<!--Let browser know website is optimized for mobile-->
+      	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+
+		{% block title %}
+			<title>NII</title>
+		{% endblock title %}
+
+		{% block css %}
+		{% endblock css %}
+	</head>
+
+    <body>
+		{% block header %}
+		{% endblock header %}
+
+		{% block navigation %}
+			<div ng-app="nii">
+		{% endblock navigation %}
+
+		{% block content %}
+				<div ui-view="">
+				Hello
+				</div>	
+			</div>
+		{% endblock content %}
+    </body>
+
+	{% block js %}
+    	<script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+	    <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+	{% endblock js %}
+</html>
